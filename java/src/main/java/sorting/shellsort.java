@@ -9,9 +9,8 @@ public class shellsort extends abstractor {
     int n = a.length;
     int gap = 1;
 
-    while (gap < n / 3) {
-      gap = 3 * gap + 1; // 4, 13, 40, 121
-    }
+    // Kunuth sequence 
+    while (gap < n / 3) gap = 3 * gap + 1; // 4, 13, 40, 121
 
     while (gap >= 1) {
       for (int i = gap; i < n; i++) {
@@ -20,10 +19,10 @@ public class shellsort extends abstractor {
         while (j >= gap && sorter.less(key, a[j - gap])) {
           a[j] = a[j - gap];
           System.out.println("gap : " + gap + ", j: " + j + ", " + Arrays.toString(a));
-          j -= 1;
+          j -= gap;
         }
         a[j] = key;
-        System.out.println("gap : " + gap + ", i: " + i + ", " + Arrays.toString(a));
+        System.out.println("gap : " + gap + ", j: " + j + ", " + Arrays.toString(a));
       }
       gap /= 3;
     }

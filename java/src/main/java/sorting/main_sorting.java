@@ -16,7 +16,7 @@ public class main_sorting {
 
     System.out.println("=== Primitive sorts (non-comparison) ===");
     Integer[] base = randomBoxed(20);
-    Integer[] custom = {4, 3, 5, 1, 2};
+    Integer[] custom = {4, 3, 5, 1, 2, 7, 6};
     System.out.println("Random Int 20: \n" + Arrays.toString(base) + "\n" + "-".repeat(20));
 
     for (algorithm algo : algorithm.values()) {

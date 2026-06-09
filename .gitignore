@@ -1,9 +1,15 @@
 .env
-**/.env
 
 .DS_Store
-**/.DS_Store
 
-.vscode
-**/.vscode
+.vscode/
 
+.idea/
+*.iml
+java/src/main/java/out/
+
+.classpath
+.project
+.settings
+java/bin/
+java/target/
