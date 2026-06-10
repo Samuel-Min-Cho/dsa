@@ -6,9 +6,22 @@ import java.util.Random;
 public class main_sorting {
 
   private static Integer[] randomBoxed(int n) {
+    // fixed seeding to 42 / same sequence every run
     Random rnd = new Random(42);
     Integer[] a = new Integer[n];
+
+    // [0, 99]
     for (int i = 0; i < n; i++) a[i] = rnd.nextInt(100);
+    return a;
+  }
+
+  private static int[] randomInt(int n) {
+    // more memory efficient
+    Random rnd = new Random();
+    int[] a = new int[n];
+
+    // [-100, 100] (201: generates 0 200) (-100 shiftss the whole range down by 100)
+    for (int i = 0; i < n; i++) a[i] = rnd.nextInt(201) - 100;
     return a;
   }
 
