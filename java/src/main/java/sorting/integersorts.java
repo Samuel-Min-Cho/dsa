@@ -1,20 +1,28 @@
 package sorting;
 
-public class integersorts extends abstractor {
+public class integersorts {
 
-  @Override
-  public <T extends Comparable<? super T>> void doSort(T[] a) {
+  private integersorts(){}
 
-    // counting sort
+  // counting sort
+  public static void countingSort (int[] a) {
+    int min = a[0], max = a[0];
+    for (int v : a){
+      if (v < min) min = v;
+      if (v > max) max = v;
+    }
 
-    // radix sort
+    int range = max - min + 1;
+    int[] count = new int[range];
+  }
 
-    // bucket sort
+  // radix sort
+  public static void radixSort (int[] a){
 
   }
 
-  @Override
-  public String name() {
-    return "integersorts:";
+  // bucket sort
+  public static void bucketSort (int[] a){
+
   }
 }

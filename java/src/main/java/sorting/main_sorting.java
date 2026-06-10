@@ -27,7 +27,7 @@ public class main_sorting {
 
   public static void main(String argc[]) {
 
-    System.out.println("=== Primitive sorts (non-comparison) ===");
+    System.out.println("Primitive sorts (non-comparison) ===");
     Integer[] base = randomBoxed(20);
     Integer[] custom = {4, 3, 5, 1, 2, 7, 6};
     System.out.println("Random Int 20: \n" + Arrays.toString(base) + "\n" + "-".repeat(20));
@@ -47,5 +47,21 @@ public class main_sorting {
       System.out.println("-".repeat(8));
       */
     }
+
+    System.out.println("non-comparable ---------------------------");
+    int [] base_prim = randomInt(15);
+    int [] custom_prim = {4, 3, 5, 1, 2, 7, 6};
+
+    System.out.println("CountingSort:");
+    // integersorts.countingSort(base_prim);
+    integersorts.countingSort(custom_prim);
+
+    System.out.println("RadixSort:");
+    // integersorts.radixSort(base_prim);
+    integersorts.radixSort(custom_prim);
+
+    System.out.println("BucketSort:");
+    // integersorts.bucketSort(base_prim);
+    integersorts.bucketSort(custom_prim);
   }
 }
