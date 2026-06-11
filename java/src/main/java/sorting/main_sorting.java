@@ -1,7 +1,10 @@
 package sorting;
 
 import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.Random;
+import java.util.function.Consumer;
 
 public class main_sorting {
 
@@ -36,12 +39,12 @@ public class main_sorting {
 
     for (algorithm algo : algorithm.values()) {
       Integer[] data = base.clone();
-      Integer[] dataTwo = custom.clone();
+      // Integer[] dataTwo = custom.clone();
       sorter st = algo.create();
       // sorter st = algorithm.selection.create();
       System.out.println(st.name());
-      st.sort(dataTwo);
-      System.out.println(Arrays.toString(dataTwo));
+      st.sort(data);
+      System.out.println(Arrays.toString(data));
       System.out.println("-".repeat(8));
       /*
       st.sort(data);
@@ -55,21 +58,15 @@ public class main_sorting {
     int[] custom_prim = {4, 3, 5, 1, 2, 7, 6};
     int[] counting = {5, 3, 5, 7, 1, 9, 3, 3};
 
-    /*
-    System.out.println("CountingSort:");
-    integersorts.countingSort(counting);
-    */
-    // integersorts.countingSort(base_prim);
+    Map<String, Consumer<int[]>> intSorts = new LinkedHashMap<>();
+    intSorts.put("countingSort", integersorts::countingSort);
+    intSorts.put("radixSort", integersorts::radixSort);
+    intSorts.put("bucketSort", integersorts::bucketSort);
 
-    System.out.println("RadixSort:");
-    integersorts.radixSort(custom_prim);
-    System.out.println(Arrays.toString(custom_prim));
-    // integersorts.radixSort(base_prim);
-
-    /*
-    System.out.println("BucketSort:");
-    integersorts.bucketSort(custom_prim);
-    */
-    // integersorts.bucketSort(base_prim);
+    for (Map.Entry<String, Consumer<int[]>> entry : intSorts.entrySet()) {
+      int[] base_clone = base_prim.clone();
+      entry.getValue().accept(base_clone);
+      System.out.println(entry.getKey() + ": " + Arrays.toString(base_clone));
+    }
   }
 }

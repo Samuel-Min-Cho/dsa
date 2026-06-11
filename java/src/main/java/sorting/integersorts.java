@@ -32,7 +32,7 @@ public class integersorts {
     // reserving the spots for previous #
     for (int i = 1; i < range; i++) {
       count[i] += count[i - 1];
-      System.out.println("count : " + Arrays.toString(count));
+      // System.out.println("count : " + Arrays.toString(count));
     }
 
     int[] out = new int[a.length];
