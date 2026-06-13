@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.Comparator; // used to define custom sorting logic for objects
 import java.util.LinkedList;
 import java.util.List;
 
@@ -15,17 +14,18 @@ public class array_list {
     int x = primes[2];
     Arrays.sort(primes); // O(nlogn)
     Arrays.fill(nums, -1);
-    int[] copy = Arrays.copyOf(primes, 3);    // [3, 5, 7]
+    int[] copy = Arrays.copyOf(primes, 3); // [3, 5, 7]
     int idx = Arrays.binarySearch(primes, 7); // O(log n) must be sorted
+    Arrays.toString(nums);
 
     // ArrayList -----------------------------------
     List<String> names = new ArrayList<>();
     ArrayList<String> names2 = new ArrayList<>(Arrays.asList("John", "Kayle"));
     // ArrayList<String> names2 = new ArrayList<String>("Jhon", "Kayle"); ->
     // CANNOT explicitly assign the values
-    names.add("John");     // O(1) amortized: gradually reducing
+    names.add("John"); // O(1) amortized: gradually reducing
     names.add(0, "kayle"); // O(n) right shift
-    names.remove(1);       // O(n) left shift
+    names.remove(1); // O(n) left shift
     String first = names.get(0);
     names.sort(Comparator.naturalOrder()); // O(nlogn)
     boolean has = names.contains("Alice"); // O(n) linear search
@@ -33,8 +33,8 @@ public class array_list {
     // LinkedList
     LinkedList<Integer> ll = new LinkedList<>();
     ll.addFirst(1); // add to head
-    ll.addLast(2);  // add to tail
+    ll.addLast(2); // add to tail
     ll.removeFirst();
-    ll.get(3);
+    Integer k = ll.get(3);
   }
 }
